@@ -16,7 +16,7 @@ needs, you're welcome to maintain your own fork designed around your needs
 The `install.sh` script symlinks all scripts to a location on PATH so they can
 be called by typing the name of the script in the terminal (without the need to give an absolute or relative path to it)
 
-After running `install.sh`, updates to existing scripts will be applied automatically when you run `git pull` on this repo. When new scripts are added, you can run `install.sh` again 
+After running `install.sh`, updates to existing scripts will be applied automatically when you run `git pull` in this repo. When new scripts are added, you can run `install.sh` again to add them.
 
 #### Instructions:
 - Clone this repo to your home directory.
@@ -28,12 +28,14 @@ After running `install.sh`, updates to existing scripts will be applied automati
         - ex: `install.sh -d /path/to/a/different/directory/`
 
 __NOTE__:
-If you use the `install.sh` script to install this repo, it creates symlinks from each script
+If you use the `install.sh` script to install this repo, it creates symlinks from each script (listed below under usage)
 to `~/.local/bin` (or another specified directory). Ensure that `~/.local/bin` (or the specified directory)
 is on PATH, and that this repo does not get moved or deleted after you run `install.sh` without first uninstalling properly (see below) because the scripts will stop functioning and it will leave broken
 symlinks on your system.
 
-__WARNING__: This script will force-delete any file in the destination (either `~/.local/bin` or a directory you specify) that has the same name as one the scripts listed below under usage. Ensure that there are no conflicts before running.
+__WARNING__: This script will force-delete any files in the destination (either
+`~/.local/bin` or a directory you specify) that have the same name as a script
+listed below (under usage). Ensure that there are no conflicts before running.
 
 ### Other Installation Options
 While the `install.sh` script is the easiest (and reccommended) way of using
@@ -54,7 +56,9 @@ or from another directory specified with the `-d` flag.
     - OPTIONAL: You can use the `-d` flag provide a path and it will remove the symlinks to scripts in `./scripts/` from that directory instead of from the default (~/.local/bin).
         - ex: `uninstall.sh -d /path/to/a/different/directory/`
 
-__WARNING__: This script will force-delete any file in the destination (either `~/.local/bin` or a directory you specify) that has the same name as one the scripts listed below under usage. Ensure that there are no conflicts before running.
+__WARNING__: This script will force-delete any files in the destination (either
+`~/.local/bin` or a directory you specify) that have the same name as a script
+listed below (under usage). Ensure that there are no conflicts before running.
 
 
 ## Usage
