@@ -61,4 +61,5 @@ $SCRIPTPATH/uninstall.sh -d $DESTINATION > /dev/null
 
 # Install the scripts to DESTINATION
 #togglevpn
+chmod +X $SCRIPTPATH/scripts/togglevpn
 ln -s "$SCRIPTPATH/scripts/togglevpn" "$DESTINATION"
