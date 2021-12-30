@@ -1,0 +1,83 @@
+#!/bin/bash
+#    © Copyright 2021 Josh Levin (Morpheus636 - https://github.com/morpheus636)
+# 
+#    This file is part of Morpheus636's desktop-utils repository.
+#
+#    This repository (and everything in it) is free software: 
+#    you can redistribute it and/or modify it under the terms 
+#    of the GNU General Public License as published by the 
+#    Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This repository is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this repository.  If not, see <https://www.gnu.org/licenses/>.
+
+
+
+#####################################################################################################################
+# Change this line to change the default connection to toggle up/down when the script is run without a -c flag.
+CLIENT=Client
+##############3333333333333333333####################################################################################
+
+
+# Help Menu
+Help()
+{
+   # Display Help
+   echo "ToggleVpn by Morpheus636."
+   echo
+   echo "Toggles a VPN connection (default name: Client) on/off"
+   echo "using nmcli."
+   echo
+   echo "Depends on:"
+   echo "network-manager     Install using 'sudo apt install network-manager'"
+   echo
+   echo "Syntax: togglevpn [-c|h]"
+   echo "options:"
+   echo "-c     Specify a VPN connection by name instead of using the default ($CLIENT)"
+   echo "-h     Print this Help message."
+   echo 
+   exit 0
+}
+
+
+# Process the input options.
+while getopts "hc:" option; do
+  case ${option} in
+    c ) # For option connection
+      CLIENT=$OPTARG
+      ;;
+    h ) # For option help
+      Help
+      ;;
+    \? ) # For invalid option
+      Help
+      ;;
+  esac
+done
+
+
+####################################################
+# Get the status of the connection
+status=$(nmcli -f GENERAL.STATE con show $CLIENT)
+
+
+# Check if the client is active
+if [[ "$status" == *"activated"* ]]; then
+  # Disconnect from the client
+  echo "VPN Connection $CLIENT disconnecting."
+  nmcli connection down $CLIENT
+elif [[ "$status" == *"activating"* ]]; then
+  # Stop Connecting to the client
+  echo "VPN Connection $CLIENT is already trying to connect, disconnecting."
+  nmcli connection down $CLIENT
+else 
+  # Connect to the client
+  echo "VPN Connection $CLIENT connecting."
+  nmcli con up $CLIENT
+fi
