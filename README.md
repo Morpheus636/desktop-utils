@@ -51,9 +51,9 @@ or from another directory specified with the `-d` flag.
 
 #### Instructions
 - `cd` into the repo.
-- Run `chmod +x ./install.sh`
-- Run `./install.sh`
-    - OPTIONAL: You can use the `-d` flag provide a path and it will remove the symlinks to scripts in `./scripts/` from that directory instead of from the default (~/.local/bin).
+- Run `chmod +x ./uninstall.sh`
+- Run `./uninstall.sh`
+    - OPTIONAL: You can use the `-d` flag to provide a path and it will remove the symlinks to scripts in `./scripts/` from that directory instead of from the default (~/.local/bin).
         - ex: `uninstall.sh -d /path/to/a/different/directory/`
 
 __WARNING__: This script will force-delete any files in the destination (either
