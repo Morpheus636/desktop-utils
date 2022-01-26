@@ -11,6 +11,9 @@ because the scripts are written for my own personal use and designed around my
 needs, you're welcome to maintain your own fork designed around your needs 
 (as long as you follow the terms of the GPL).
 
+The `main` branch should be considered stable, but nothing in this repository comes with any warranty,
+implied or otherwise (see the license and copyright notice for more).
+
 ## Installation
 ### `install.sh` script
 The `install.sh` script symlinks all scripts to a location on PATH so they can
