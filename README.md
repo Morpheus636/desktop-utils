@@ -2,17 +2,7 @@
 This repository contains a set of utility scripts I wrote for myself to make
 my life easier on Ubuntu 20.04 with Gnome destkop.
 
-If you find a bug, you can feel free to report it in a GitHub Issue on this
-repository, or fork this repo and open a pull request with a fix. 
-
-If you have a feature request, you can open a GitHub issue, or fork this repo
-and open a pull request with the feature. Although I may not accept the changes
-because the scripts are written for my own personal use and designed around my
-needs, you're welcome to maintain your own fork designed around your needs 
-(as long as you follow the terms of the GPL).
-
-The `main` branch should be considered stable, but nothing in this repository comes with any warranty,
-implied or otherwise (see the license and copyright notice for more).
+These tools are developed for my use but published so others can benefit. Pull requests will be closed without merging.
 
 ## Installation
 ### `install.sh` script
